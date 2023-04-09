@@ -1,0 +1,9 @@
+@media (max-width: 768px){
+    .popup{
+        background-color: var(--color-light);
+        border-radius: var(--border-radius--primary);
+        padding: var(--padding-primary);
+        max-width: 327px;
+        min-height: 224px;
+    }
+}

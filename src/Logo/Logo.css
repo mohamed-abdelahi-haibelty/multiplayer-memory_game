@@ -1,0 +1,9 @@
+@media (max-width: 768px){
+    .logo{
+        text-align: center;
+        font-weight: var(--font-weight-bold);
+        font-family: var(--font-family-primary);
+        color: var(--color-light);
+        font-size: 2rem;
+    }
+}

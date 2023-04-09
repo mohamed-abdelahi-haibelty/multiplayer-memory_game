@@ -1,0 +1,8 @@
+@media (max-width: 768px){
+    .home-container{
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+    }
+}

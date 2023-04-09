@@ -1,0 +1,42 @@
+.button{
+    border-radius: 26px;
+    width: 279px;
+    height: 48px;
+    color: var(--color-light);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.button-orange{
+    background-color: var(--color-orange);
+}
+
+.button-dark{
+    background-color: var(--color-light-dark);
+}
+
+.button-gray{
+    background-color: var(--color-gray);
+}
+
+.button-very-light{
+    background-color: var(--color-very-light);
+    color: var(--color-light-dark);
+}
+
+.button-md{
+    width: 134px !important;
+    height: 40px !important;
+}
+
+.button-sm{
+    width: 62px !important;
+    height: 40px !important;
+}
+
+.button-rounded{
+    border-radius: 41px !important;
+    width: 47px !important;
+    height: 46px !important;
+}
