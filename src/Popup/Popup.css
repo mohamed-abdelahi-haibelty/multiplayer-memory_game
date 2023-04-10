@@ -1,3 +1,9 @@
+.popup{
+    background-color: var(--color-light);
+    min-height: 224px;
+}
+
+
 @media (max-width: 768px){
     .popup{
         background-color: var(--color-light);
@@ -5,5 +11,15 @@
         padding: var(--padding-primary);
         max-width: 327px;
         min-height: 224px;
+    }
+}
+
+
+
+@media (min-width: 768px){
+    .popup{
+        border-radius: calc(var(--border-radius--primary) * 2);
+        padding: var(--padding-lg-screen);
+        max-width: 654px;
     }
 }
