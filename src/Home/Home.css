@@ -5,12 +5,26 @@
         flex-direction: column;
         gap: 45px;
     }
-    .select-them, .select-numbers, .select-grid-size{
-        display: flex;
-        justify-content: space-between;
-    }
-    .start-game{
-        margin-top: 32px;
-        text-align: center;
+
+}
+
+.start-game{
+    margin-top: 32px;
+    text-align: center;
+}
+
+.select-them, .select-numbers, .select-grid-size{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (min-width: 768px){
+    .home-container{
+        width: 654px;
+        margin-top: 169px;
+        gap: 78px;
+        margin-left: 57px;
+        margin-right: 57px;
     }
 }
