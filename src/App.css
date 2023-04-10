@@ -8,9 +8,11 @@
     --color-light-dark: #304859;
     --color-very-light:#DFE7EC;
     --color-gray: #BCCED9;
+    --color-light-blue:#7191A5;
     --border-radius--primary: 10px;
     --padding-primary: 24px;
-    --margin-primary: 24px
+    --margin-primary: 24px;
+    --font-size-primary: 15px;
 
 
 }

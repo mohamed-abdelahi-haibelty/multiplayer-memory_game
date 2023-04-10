@@ -5,4 +5,12 @@
         flex-direction: column;
         gap: 45px;
     }
+    .select-them, .select-numbers, .select-grid-size{
+        display: flex;
+        justify-content: space-between;
+    }
+    .start-game{
+        margin-top: 32px;
+        text-align: center;
+    }
 }
