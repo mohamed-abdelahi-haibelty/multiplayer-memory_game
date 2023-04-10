@@ -1,12 +1,8 @@
 .button{
-    border-radius: 26px;
-    width: 279px;
-    height: 48px;
     color: var(--color-light);
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 18px;
 }
 
 .button-orange{
@@ -26,20 +22,56 @@
     color: var(--color-light-dark);
 }
 
-.button-md{
-    width: 134px !important;
-    height: 40px !important;
-    font-size: 16px !important;
-}
 
-.button-sm{
-    width: 62px !important;
-    height: 40px !important;
-    font-size: 16px !important;
-}
+
+
 
 .button-rounded{
     border-radius: 41px !important;
     width: 47px !important;
     height: 46px !important;
+}
+
+@media (max-width: 768px){
+    .button{
+        width: 279px;
+        height: 48px;
+        font-size: 18px;
+        border-radius: 26px;
+    }
+
+    .button-md{
+        width: 134px !important;
+        height: 40px !important;
+        font-size: 16px !important;
+    }
+
+    .button-sm{
+        width: 62px !important;
+        height: 40px !important;
+        font-size: 16px !important;
+    }
+}
+
+
+@media (min-width: 768px){
+    .button{
+        width: 541px;
+        height: 70px;
+        font-size: 32px;
+        border-radius: 35px;
+    }
+
+    .button-md{
+        width: 256px !important;
+        height: 52px !important;
+        font-size: 26px !important;
+        border-radius: 26px;
+    }
+
+    .button-sm{
+        width: 119px !important;
+        height: 52px !important;
+        font-size: 26px !important;
+    }
 }
