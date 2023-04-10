@@ -1,8 +1,18 @@
+.text-lable{
+    color: var(--color-light-blue);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-primary);
+ }
+
 @media (max-width: 768px){
     .text-lable{
-        color: var(--color-light-blue);
         font-size: var(--font-size-primary);
-        font-weight: var(--font-weight-bold);
-        font-family: var(--font-family-primary);
+     }
+}
+
+
+@media (max-width: 768px){
+    .text-lable{
+        font-size: var(--font-size-lg);
      }
 }
