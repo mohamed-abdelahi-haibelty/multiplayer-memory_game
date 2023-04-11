@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.header .logo{
+    font-size: 24px;
+    color: var(--color-dark);
+}
