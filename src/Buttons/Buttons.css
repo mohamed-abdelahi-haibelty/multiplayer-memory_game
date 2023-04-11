@@ -28,14 +28,16 @@
     color: var(--color-light-dark);
 }
 
-
-
-
-
 .button-rounded{
     border-radius: 41px !important;
     width: 47px !important;
     height: 46px !important;
+}
+
+.menu-button{
+    width: 78px;
+    height: 40px;
+    font-size: 16px;
 }
 
 @media (max-width: 767px){
@@ -81,5 +83,9 @@
         width: 119px !important;
         height: 52px !important;
         font-size: 26px !important;
+    }
+
+    .menu-button{
+        display: none;
     }
 }
