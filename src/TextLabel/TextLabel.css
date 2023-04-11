@@ -6,13 +6,15 @@
 
 @media (max-width: 768px){
     .text-lable{
+        margin-bottom: 11px;
         font-size: var(--font-size-primary);
      }
 }
 
 
-@media (max-width: 768px){
+@media (min-width: 767px){
     .text-lable{
+        margin-bottom: 16px;
         font-size: var(--font-size-lg);
      }
 }

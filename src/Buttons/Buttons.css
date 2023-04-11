@@ -8,6 +8,9 @@
 .button-orange{
     background-color: var(--color-orange);
 }
+.button-orange:hover{
+    background-color: var(--color-orange-hover);
+}
 
 .button-dark{
     background-color: var(--color-light-dark);
@@ -15,6 +18,9 @@
 
 .button-gray{
     background-color: var(--color-gray);
+}
+.button-gray:hover{
+    background-color: var(--color-gray-hover);
 }
 
 .button-very-light{
@@ -32,12 +38,13 @@
     height: 46px !important;
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     .button{
         width: 279px;
         height: 48px;
         font-size: 18px;
         border-radius: 26px;
+        margin-bottom: 24px;
     }
 
     .button-md{
@@ -60,6 +67,7 @@
         height: 70px;
         font-size: 32px;
         border-radius: 35px;
+        margin-bottom: 32px;
     }
 
     .button-md{

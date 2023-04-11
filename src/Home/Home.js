@@ -19,7 +19,7 @@ function Home(props) {
   ]
 
   let select_them_btns = select_them_data.map((btn, indx) => {
-    return <Button class_selector={btn.class_selector} text={btn.text}></Button>
+    return <Button class_selector={btn.class_selector} text={btn.text} key={indx + 1}></Button>
   })
 
   let grid_size_data = [
@@ -30,7 +30,7 @@ function Home(props) {
 
 
   let grid_size_btns = grid_size_data.map((btn, indx) => {
-      return <Button class_selector={btn.class_selector} text={btn.text}></Button>
+      return <Button class_selector={btn.class_selector} text={btn.text} key={indx + 1}></Button>
   })
 
   return (

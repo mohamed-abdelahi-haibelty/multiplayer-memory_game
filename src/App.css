@@ -9,6 +9,8 @@
     --color-very-light:#DFE7EC;
     --color-gray: #BCCED9;
     --color-light-blue:#7191A5;
+    --color-orange-hover:#FFB84A;
+    --color-gray-hover: #6395B8;
     --border-radius--primary: 10px;
     --padding-primary: 24px;
     --margin-primary: 24px;
@@ -24,12 +26,6 @@ body{
     background-color: var(--color-dark);
 }
 
-@media (max-width: 768px){
-    .conatainer{
-        margin-right: var(--margin-primary);
-        margin-left: var(--margin-primary);
-     }
-}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Big+Shoulders+Display:wght@700&family=Open+Sans:wght@400;700&display=swap');

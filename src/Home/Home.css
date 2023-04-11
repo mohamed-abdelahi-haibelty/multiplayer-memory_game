@@ -1,16 +1,24 @@
+.home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 768px){
     .home-container{
         margin-top: 80px;
-        display: flex;
-        flex-direction: column;
         gap: 45px;
     }
 
 }
 
-.start-game{
-    margin-top: 32px;
+.start-game {
     text-align: center;
+}
+
+.start-game button{
+    margin-bottom: 0px;
 }
 
 .select-them, .select-numbers, .select-grid-size{
@@ -21,9 +29,7 @@
 
 @media (min-width: 768px){
     .home-container{
-        margin-top: 169px;
+        margin-top: 60px;
         gap: 78px;
-        margin-left: 57px;
-        margin-right: 57px;
     }
 }
