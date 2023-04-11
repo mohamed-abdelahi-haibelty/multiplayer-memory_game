@@ -40,6 +40,10 @@
     font-size: 16px;
 }
 
+.lg-screen-btns{
+    display: none;
+}
+
 @media (max-width: 767px){
     .button{
         width: 279px;
@@ -87,5 +91,9 @@
 
     .menu-button{
         display: none;
+    }
+
+    .lg-screen-btns{
+        display: block;
     }
 }
