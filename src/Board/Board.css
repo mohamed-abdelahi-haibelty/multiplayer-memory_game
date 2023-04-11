@@ -1,0 +1,12 @@
+@media (max-width: 767px){
+  .board-container{
+    width: 90%;
+    margin-right: var(--margin-primary);
+    margin-left: var(--margin-primary);
+  }
+}
+
+
+@media (min-width: 767px){
+  
+}
