@@ -1,7 +1,7 @@
 
 .popup{
     background-color: var(--color-light);
-    min-height: 224px;
+    min-height: calc(224px - 24px);
 }
 
 
