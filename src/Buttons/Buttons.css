@@ -19,8 +19,12 @@
 .button-gray{
     background-color: var(--color-gray);
 }
-.button-gray:hover{
+.button-gray,.button-very-light:hover{
     background-color: var(--color-gray-hover);
+}
+
+.button-very-light:hover{
+    color: var(--color-light);
 }
 
 .button-very-light{
@@ -30,14 +34,12 @@
 
 .button-rounded{
     border-radius: 41px !important;
-    width: 47px !important;
-    height: 46px !important;
 }
 
-.menu-button{
-    width: 78px;
-    height: 40px;
-    font-size: 16px;
+.button-menu{
+    width: 78px !important;
+    height: 40px !important;
+    font-size: 16px !important;
 }
 
 .lg-screen-btns{
@@ -50,7 +52,6 @@
         height: 48px;
         font-size: 18px;
         border-radius: 26px;
-        margin-bottom: 24px;
     }
 
     .button-md{
@@ -89,11 +90,14 @@
         font-size: 26px !important;
     }
 
-    .menu-button{
+    .button-menu{
         display: none;
     }
 
     .lg-screen-btns{
         display: block;
+        display: flex;
+        align-items: center;
+        gap: 16px;
     }
 }

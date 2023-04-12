@@ -10,6 +10,9 @@
         margin-top: 80px;
         gap: 45px;
     }
+    .home-container .button{
+        margin-bottom: var(--margin-primary);
+    }
 
 }
 
@@ -31,5 +34,9 @@
     .home-container{
         margin-top: 60px;
         gap: 78px;
+    }
+
+    .home-container .button{
+        margin-bottom: 32px;
     }
 }

@@ -1,12 +1,14 @@
 
 import "./App.css"
-import Home from "./Home/Home"
+import Board from "./Board/Board"
+// import Home from "./Home/Home"
 
 
 function App() {
   return (
     <div className="container">
-        <Home></Home>
+        {/* <Home></Home> */}
+        <Board/>
     </div>
   )
 }

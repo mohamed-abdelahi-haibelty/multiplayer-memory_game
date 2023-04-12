@@ -1,12 +1,37 @@
+
+
+
 @media (max-width: 767px){
   .board-container{
     width: 90%;
     margin-right: var(--margin-primary);
     margin-left: var(--margin-primary);
   }
+
+  .board-container .header{
+    margin-bottom: 80px;
+  }
 }
 
 
 @media (min-width: 767px){
-  
+  .board-container{
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .board-container .header{
+    margin-bottom: 121px;
+  }
+}
+
+@media (min-width: 1024px){
+  .board-container{
+    width: 50%;
+  }
+
+  .board-container .header{
+    margin-bottom: 121px;
+  }
 }

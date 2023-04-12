@@ -1,0 +1,40 @@
+.squares-hr,.squares-vr{
+    background-color: var(--color-very-light) ;
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width: 767px){
+    .squares-hr{
+        width: calc(151px - 64px)
+    }
+
+    .squares-hr,.squares-vr{
+        border-radius: 5px;
+        max-height: 70px;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px 32px;
+    }
+}
+
+
+@media (min-width: 767px){
+    .squares-hr{
+        width: calc(240px - 42px);
+    }
+
+    .squares-hr,.squares-vr{
+        border-radius: 10px;
+        max-height: 72px;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 10px 21px;
+    }
+}
+
+
+.squares-vr{
+    width: 64x;
+}

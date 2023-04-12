@@ -1,0 +1,21 @@
+.sq-title{
+    font-size: 15px;
+    font-family: var(--font-family-primary);
+    color: var(--color-light-blue);
+}
+
+.sq-text{
+    font-size: 24px;
+    color: var(--color-light-dark);
+    font-family: var(--font-family-primary);
+}
+
+@media (min-width:767px) {
+    .sq-title{
+        font-size: 18px;
+    }
+
+    .sq-text{
+        font-size: 32px;
+    }
+}

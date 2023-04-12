@@ -5,6 +5,34 @@
 }
 
 .header .logo{
-    font-size: 24px;
     color: var(--color-dark);
+}
+
+@media (max-width: 767px){
+    .header .logo{
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 767px){
+    .header{
+        margin-top: 37px;
+    }
+    .header .logo{
+        font-size: 40px;
+    }
+
+    .header button{
+        font-size: 20px;
+    }
+
+    .header button:first-child{
+        width: 127px !important;
+        height: 52px !important;
+    }
+
+    .header button:nth-child(2){
+        width: 149px !important;
+        height: 52px !important;
+    }
 }

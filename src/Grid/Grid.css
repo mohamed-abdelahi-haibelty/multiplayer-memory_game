@@ -1,0 +1,52 @@
+.grid-4x4,.grid-6x6{
+   display: grid;
+}
+
+
+@media (max-width: 767px){
+     .grid-4x4,.grid-6x6{
+          gap: 12.9px;
+          margin-bottom: 102.12px;
+     }
+
+   .grid-4x4{
+        grid-template-columns: repeat(4, 72.53px);
+   }
+   .grid-6x6{
+        grid-template-columns: repeat(6, 46.88px);
+   }
+   .grid-4x4 .button-rounded{
+        width: 72.53px;
+        height: 72.53px;
+    }
+   .grid-6x6 .button-rounded{
+        width: 46.88px;
+        height: 46.88px;
+    }
+}
+
+
+@media (min-width: 767px){
+     .grid-4x4{
+          grid-template-columns: repeat(4, 118px);
+     }
+     .grid-6x6{
+          grid-template-columns: repeat(6, 82px);
+     }
+     .grid-4x4, .grid-6x6{
+          margin-right: auto;
+          margin-left: auto;
+          width: 572px;
+          gap: 16px;
+          margin-bottom: 126px;
+     }
+     .grid-4x4 .button-rounded{
+          width: 118px;
+          height: 118px;
+          border-radius: 59px !important;
+      }
+     .grid-6x6 .button-rounded{
+          width: 82px;
+          height: 82px;
+      }
+}
