@@ -1,11 +1,12 @@
 import MainButton from "../Buttons/Buttons"
 import "./Grid.css"
 
-function Grid() {
-  const rounded_btns = [];
-  for (let i = 0; i < 16; i++) {
-    rounded_btns.push(<MainButton class_selector={`button-rounded button-dark`} key={i}/>);
-  }
+function Grid(props) {
+
+  const rounded_btns = props.cards.map((card, i) => <MainButton  onClick={() => 
+  props.handelShowCard(i)} text={card.visible ? card.content: ""} 
+  class_selector={`button-rounded  ${card.matched ? card.style : "button-dark"}`}
+  key={card.id}/>)
 
   return (
     <div className="grid-4x4">
