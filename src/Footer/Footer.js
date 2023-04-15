@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 function Footer(prop) {
   const [time, setTime] = useState(0);
   const [timerId, setTimerId] = useState(null);
+  // console.log(prop.is_end_game)
 
 
   useEffect(() => {
@@ -25,9 +26,15 @@ function Footer(prop) {
 
   }
 
-  // const handelStopTimer = () => {
-  //     clearInterval(timerId)
-  // }
+  const handelStopTimer = (timerId) => {
+    console.log('handelstoptimer')
+    clearInterval(timerId)
+  }
+
+  if (prop.is_end_game === 8){
+    console.log("handelstopcondition")
+    handelStopTimer(timerId)
+  }
 
   return (
     <div className="footer">

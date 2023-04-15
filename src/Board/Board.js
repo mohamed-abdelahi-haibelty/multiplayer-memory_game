@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Board.css"
 import "../Header/Header"
 import Header from "../Header/Header"
@@ -9,6 +9,9 @@ const cards_content = Array(8).fill().map((_, i) => ({content: i, visible: false
 
 
 function Board() {
+
+  const is_end_game = useRef(0);
+  const [end_game, setEndGame] = useState(false)
 
   const [cards, setCards] = useState([]);
   const [moves, setMoves] = useState(0);
@@ -78,29 +81,35 @@ function Board() {
         }))
 
 
+        is_end_game.current += 1;
       }
       else{
         setTimeout(() => {
           setCards(prevCards => prevCards.map(card => {
             if(card.content === choice_one.content || card.content === choice_two.content){
-               card.visible = false
+              return {...card, visible: false}
             }
             return card
           }))
         },500)
       }
 
-      
       reset_turn()
     }
   }, [choice_one, choice_two])
 
 
+  // if (is_end_game.current === 8){
+  //   console.log("end_game")
+  //   setEndGame(true)
+  // }
+
+
   return (
     <div className="board-container">
         <Header></Header>
-        <Grid cards={cards} handelShowCard={handelShowCard}></Grid>
-        <Footer moves={moves}/>
+        <Grid cards={cards} handelShowCard={handelShowCard} is_end_game={is_end_game.current}></Grid>
+        <Footer moves={moves} is_end_game={is_end_game.current}/>
     </div>
   )
 }
