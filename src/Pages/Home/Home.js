@@ -1,8 +1,9 @@
 import './Home.css'
-import Logo from "../Logo/Logo"
-import Popup from "../Popup/Popup"
-import Button from "../Buttons/Buttons"
-import TextLabel from "../TextLabel/TextLabel"
+import Logo from "../../components/Logo/Logo"
+import Popup from "../../components/Popup/Popup"
+import Button from "../../components/Buttons/Buttons"
+import TextLabel from "../../components/TextLabel/TextLabel"
+import {Link} from "react-router-dom"
 
 function Home(props) {
   const classes_list = [`button-sm button-dark`, `button-sm button-gray`, 
@@ -50,7 +51,9 @@ function Home(props) {
                   {grid_size_btns}
                 </div>
                 <div className="start-game">
-                  <Button class_selector={` button-orange`} text={'Start Game'}></Button>
+                  <Link to='/game' onClick={() => document.body.style.backgroundColor = '#FCFCFC'}>
+                    <Button class_selector={` button-orange`} text={'Start Game'}></Button>
+                  </Link>
                 </div>
             </Popup>
     </div>

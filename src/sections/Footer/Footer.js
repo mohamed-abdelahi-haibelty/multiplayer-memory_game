@@ -1,7 +1,7 @@
 import "./Footer.css"
-import SquareHr from "../Squares/Squares"
+import SquareHr from "../../components/Squares/Squares"
 import { useState, useEffect } from "react"
-import GameOver from "../GameOver/GameOver";
+import GameOver from "../../components/GameOver/GameOver";
 
 function Footer(prop) {
   const [time, setTime] = useState(0);

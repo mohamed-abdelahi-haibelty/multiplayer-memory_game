@@ -1,8 +1,7 @@
 import "./Header.css"
-import "../Logo/Logo"
-import Logo from "../Logo/Logo"
-import MainButton from "../Buttons/Buttons"
-import Popup from "../Popup/Popup"
+import Logo from "../../components/Logo/Logo"
+import MainButton from "../../components/Buttons/Buttons"
+import Popup from "../../components/Popup/Popup"
 import { useState } from "react"
 
 function Header() {

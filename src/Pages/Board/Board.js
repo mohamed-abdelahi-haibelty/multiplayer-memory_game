@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "./Board.css"
-import "../Header/Header"
-import Header from "../Header/Header"
-import Grid from "../Grid/Grid"
-import Footer from "../Footer/Footer"
+import Header from "../../sections/Header/Header"
+import Grid from "../../sections/Grid/Grid"
+import Footer from "../../sections/Footer/Footer"
 
 const cards_content = Array(8).fill().map((_, i) => ({content: i, visible: false, matched: false}));
 
@@ -11,7 +10,7 @@ const cards_content = Array(8).fill().map((_, i) => ({content: i, visible: false
 function Board() {
 
   const is_end_game = useRef(0);
-  const [end_game, setEndGame] = useState(false)
+  // const [end_game, setEndGame] = useState(false)
 
   const [cards, setCards] = useState([]);
   const [moves, setMoves] = useState(0);

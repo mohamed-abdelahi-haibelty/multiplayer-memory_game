@@ -82,12 +82,12 @@
     }
 
     .game-over-header .title{
-        font-size: 24px;
+        font-size: 48px;
         margin-bottom: 10px;
     }
 
     .game-over-header .state{
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .result .squares-hr{

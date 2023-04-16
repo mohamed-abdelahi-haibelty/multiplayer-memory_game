@@ -1,4 +1,4 @@
-import MainButton from "../Buttons/Buttons"
+import MainButton from "../../components/Buttons/Buttons"
 import "./Grid.css"
 
 function Grid(props) {
