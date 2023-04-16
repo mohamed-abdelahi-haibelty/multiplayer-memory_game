@@ -3,6 +3,8 @@
     border: none;
     outline: none;
     cursor: pointer;
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-bold);
 }
 
 .button-orange{
@@ -19,10 +21,13 @@
 .button-gray{
     background-color: var(--color-gray);
 }
-.button-gray,.button-very-light:hover{
+.button-gray:hover{
     background-color: var(--color-gray-hover);
 }
 
+.button-very-light:hover{
+    background-color: var(--color-gray-hover);
+}
 .button-very-light:hover{
     color: var(--color-light);
 }

@@ -31,7 +31,12 @@
     width: 50%;
   }
 
+  .board-container .header button{
+    height: 45px;
+    font-size: 18px;
+  }
+
   .board-container .header{
-    margin-bottom: 121px;
+    margin-bottom: 32px;
   }
 }

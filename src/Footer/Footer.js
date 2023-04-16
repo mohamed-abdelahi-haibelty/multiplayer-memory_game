@@ -1,6 +1,7 @@
 import "./Footer.css"
 import SquareHr from "../Squares/Squares"
 import { useState, useEffect } from "react"
+import GameOver from "../GameOver/GameOver";
 
 function Footer(prop) {
   const [time, setTime] = useState(0);
@@ -31,16 +32,19 @@ function Footer(prop) {
     clearInterval(timerId)
   }
 
-  if (prop.is_end_game === 8){
+  if (prop.is_end_game === 0){
     console.log("handelstopcondition")
     handelStopTimer(timerId)
   }
 
   return (
-    <div className="footer">
-        <SquareHr text={timer(time)} title={"Time"}/>
-        <SquareHr text={prop.moves} title={"Moves"}/>
-    </div>
+    <>
+      {/* <GameOver time={'1:53'} title={"You did it "} state={"Game over! Here is how you got on..."} moves={"39 Moves"}/> */}
+      <div className="footer">
+      <SquareHr text={timer(time)} title={"Time"}/>
+      <SquareHr text={prop.moves} title={"Moves"}/>
+      </div>
+    </>
   )
 }
 

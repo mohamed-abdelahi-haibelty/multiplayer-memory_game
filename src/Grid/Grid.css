@@ -7,6 +7,9 @@
      .grid-4x4,.grid-6x6{
           gap: 12.9px;
           margin-bottom: 102.12px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 327px;
      }
 
    .grid-4x4{
@@ -39,15 +42,13 @@
           margin-left: auto;
           width: 572px;
           gap: 16px;
-          margin-bottom: 126px;
+          margin-bottom: 32px;
      }
      .grid-4x4 .button-rounded{
-          width: 118px;
-          height: 118px;
+          width: 90px;
+          height: 90px;
           border-radius: 59px !important;
-      }
-     .grid-6x6 .button-rounded{
-          width: 82px;
-          height: 82px;
+          margin-bottom: 0;
+          font-size: 56px;
       }
 }

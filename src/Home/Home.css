@@ -32,11 +32,19 @@
 
 @media (min-width: 768px){
     .home-container{
-        margin-top: 60px;
-        gap: 78px;
+        margin-top: 20px;
+        gap: 30px;
     }
 
     .home-container .button{
-        margin-bottom: 32px;
+        margin-bottom: 24px;
+    }
+
+    .home-container .popup{
+        padding: 32px;
+        max-width: calc(654px - 64px);
+    }
+    .home-container .popup .button:last-child{
+        margin-bottom: 0;
     }
 }
