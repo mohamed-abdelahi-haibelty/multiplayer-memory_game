@@ -17,6 +17,7 @@
    }
    .grid-6x6{
         grid-template-columns: repeat(6, 46.88px);
+        gap: 9.12px;
    }
    .grid-4x4 .button-rounded{
         width: 72.53px;
@@ -33,15 +34,16 @@
 @media (min-width: 767px){
      .grid-4x4{
           grid-template-columns: repeat(4, 118px);
+          gap: 16px;
      }
      .grid-6x6{
           grid-template-columns: repeat(6, 82px);
+          gap:8px;
      }
      .grid-4x4, .grid-6x6{
           margin-right: auto;
           margin-left: auto;
           width: 572px;
-          gap: 16px;
           margin-bottom: 32px;
      }
      .grid-4x4 .button-rounded{
@@ -50,5 +52,10 @@
           border-radius: 59px !important;
           margin-bottom: 0;
           font-size: 56px;
-      }
+     }
+     .grid-6x6 .button-rounded{
+          width: 64px;
+          height: 64px;
+          margin-bottom: 0;
+     }
 }

@@ -6,11 +6,15 @@ import Footer from "../../sections/Footer/Footer"
 import { useContext } from 'react'
 import { gameContext } from '../../App'
 
-import { FaEarlybirds, FaGithubAlt, FaJenkins, FaKeybase, FaLinux, FaQq, faGhost, FaBomb, 
+import { FaEarlybirds, FaGithubAlt, FaJenkins, FaKeybase, FaLinux, FaQq, FaGhost, FaBomb, 
   FaCarAlt, FaCat, FaDizzy, FaDog, FaFemale, FaKaaba, FaGrinWink, FaHandSpock, FaMeteor,
    FaSadCry} from "react-icons/fa";
 
 const cards_content = Array(8).fill().map((_, i) => ({content: i, visible: false, matched: false}));
+const icons_4x4 = '';
+const icons_6x6 = '';
+const nums_4x4 = Array(8).fill().map((_, i) => ({content: i, visible: false, matched: false}));
+const nums_6x6 = Array(18).fill().map((_, i) => ({content: i, visible: false, matched: false}));
 
 
 function Board() {
@@ -68,7 +72,7 @@ function Board() {
 
  ///////////////////// shuffle cards when the page load //////////////////
   useEffect(()=>{
-    shuflleCards(cards_content)
+    shuflleCards(game_param.grid === '4x4'? nums_4x4: nums_6x6);
   }, [])
 
 
