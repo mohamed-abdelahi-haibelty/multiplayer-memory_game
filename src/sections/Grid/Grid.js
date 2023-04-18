@@ -10,7 +10,7 @@ function Grid(props) {
 
 
   return (
-    <div className="grid-4x4">
+    <div className={props.grid_size}>
         {rounded_btns}
     </div>
   )

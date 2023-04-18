@@ -14,7 +14,7 @@
     background-color: var(--color-orange-hover);
 }
 
-.button-dark{
+.active,.button-dark{
     background-color: var(--color-light-dark);
 }
 
