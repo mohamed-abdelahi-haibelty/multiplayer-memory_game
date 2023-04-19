@@ -6,13 +6,17 @@ import Footer from "../../sections/Footer/Footer"
 import { useContext } from 'react'
 import { gameContext } from '../../App'
 
-import { FaEarlybirds, FaGithubAlt, FaJenkins, FaKeybase, FaLinux, FaQq, FaGhost, FaBomb, 
+import { FaEarlybirds, FaGithubAlt, FaSnowman, FaKeybase, FaHippo, FaQq, FaGhost, FaBomb, 
   FaCarAlt, FaCat, FaDizzy, FaDog, FaFemale, FaKaaba, FaGrinWink, FaHandSpock, FaMeteor,
    FaSadCry} from "react-icons/fa";
 
-const cards_content = Array(8).fill().map((_, i) => ({content: i, visible: false, matched: false}));
-const icons_4x4 = '';
-const icons_6x6 = '';
+const icons_4x4 = [FaDizzy, FaDog, FaFemale, FaQq, FaGrinWink, FaHandSpock, FaMeteor,
+  FaSadCry].map((el) => ({content: el, visible: false, matched: false}));
+
+const icons_6x6 = [FaEarlybirds, FaGithubAlt, FaSnowman, FaKeybase, FaHippo, FaQq, FaGhost, FaBomb, 
+  FaCarAlt, FaCat, FaDizzy, FaDog, FaFemale, FaKaaba, FaGrinWink, FaHandSpock, FaMeteor,
+   FaSadCry].map((el) => ({content: el, visible: false, matched: false}));
+
 const nums_4x4 = Array(8).fill().map((_, i) => ({content: i, visible: false, matched: false}));
 const nums_6x6 = Array(18).fill().map((_, i) => ({content: i, visible: false, matched: false}));
 
@@ -25,6 +29,7 @@ function Board() {
   const [choice_two, setChoiceTwo] = useState(null)
   const {game_param} = useContext(gameContext)
   const is_end_game = useRef(0);
+  const [is_icon, setIsIcon] = useState(false)
   // const [end_game, setEndGame] = useState(false)
 
 
@@ -46,6 +51,7 @@ function Board() {
     shuffled = shuffled.map(card => ({...card, id: Math.random()}))
     
     //////////////// add the shuffeld cards to the cards_content variable///////////
+    console.log(shuffled)
     setCards(shuffled)
 
     setMoves(0)
@@ -72,7 +78,26 @@ function Board() {
 
  ///////////////////// shuffle cards when the page load //////////////////
   useEffect(()=>{
-    shuflleCards(game_param.grid === '4x4'? nums_4x4: nums_6x6);
+    let cards_content
+    console.log(game_param.grid)
+    console.log(game_param.theme)
+    if(game_param.grid === '4x4'){
+      if (game_param.theme === "Numbers"){
+        cards_content = nums_4x4;
+      }
+      else{
+        cards_content = icons_4x4;
+        setIsIcon(true)
+      }
+    }
+    else if(game_param.theme === "Numbers")
+      cards_content = nums_6x6;
+      else{
+        cards_content = icons_6x6;
+        setIsIcon(true)
+      }
+        
+    shuflleCards(cards_content);
   }, [])
 
 
@@ -133,7 +158,7 @@ function Board() {
   return (
     <div className="board-container">
         <Header></Header>
-        <Grid  grid_size={`grid-${game_param.grid}`} cards={cards} handelShowCard={handelShowCard} is_end_game={is_end_game.current}></Grid>
+        <Grid is_icon={is_icon} grid_size={`grid-${game_param.grid}`} cards={cards} handelShowCard={handelShowCard} is_end_game={is_end_game.current}></Grid>
         <Footer moves={moves} is_end_game={is_end_game.current}/>
     </div>
   )

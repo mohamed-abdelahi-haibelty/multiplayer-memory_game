@@ -2,6 +2,13 @@
    display: grid;
 }
 
+.grid-4x4 > .button-rounded,
+.grid-6x6 > .button-rounded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 @media (max-width: 767px){
      .grid-4x4,.grid-6x6{

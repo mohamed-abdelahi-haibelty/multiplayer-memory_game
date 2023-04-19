@@ -3,8 +3,8 @@ import "./Grid.css"
 
 function Grid(props) {
 
-  const rounded_btns = props.cards.map((card, i) => <MainButton  onClick={() => 
-  props.handelShowCard(i)} text={card.visible ? card.content: ""} 
+  const rounded_btns = props.cards.map((card, i) => <MainButton onClick={() => 
+  props.handelShowCard(i)} text={card.visible ? props.is_icon? <card.content/>: card.content: ""} 
   class_selector={`button-rounded  ${card.matched ? card.style : "button-dark"}`}
   key={card.id}/>);
 
