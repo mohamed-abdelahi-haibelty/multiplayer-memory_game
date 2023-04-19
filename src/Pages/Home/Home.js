@@ -8,9 +8,12 @@ import { useEffect} from 'react'
 import { useContext } from 'react'
 import { gameContext } from '../../App'
 
+
 function Home(props) {
   const classes_list = [`button-sm button-dark`, `button-sm button-gray`,
   `button-sm button-gray`, `button-sm button-gray`]
+
+  const setBody = props.bodyBg
 
   //theme, plyrs_nums, grid
   //  const [game_param, setGameParam] = useState({theme:'', plyrs_nums:'', grid:''})
@@ -80,6 +83,7 @@ function Home(props) {
       return <Button onClick={(event) => handleBtns(event, index, ".select-grid-size button", "grid", btn.text)} class_selector={btn.class_selector} text={btn.text} key={index + 1}></Button>
   })
 
+
   return (
     <div className='home-container'>
       <Logo/>
@@ -104,7 +108,7 @@ function Home(props) {
                 </div>
 
                 <div className="start-game">
-                  <Link to='/game' onClick={() => document.body.style.backgroundColor = '#FCFCFC'}>
+                  <Link to='/game' onClick={() =>setBody('#FCFCFC')}>
                     <Button  class_selector={` button-orange`} text={'Start Game'}></Button>
                   </Link>
                 </div>
