@@ -9,7 +9,13 @@ import { useEffect } from "react"
 export const gameContext = createContext()
 
 function App() {
-  const [game_param, setGameParam] = useState({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
+  // const [game_param, setGameParam] = useState({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
+
+  const [game_param, setGameParam] = useState(() => {
+    let localData = localStorage.getItem('game_state')
+    return localData? JSON.parse(localData) : {theme:'Numbers', plyrs_nums: 1, grid:'4x4'}
+  })
+
   const [body, setBody] = useState(() => {
     return localStorage.getItem('body_color')? localStorage.getItem('body_color') : '#152938'
   })
@@ -18,6 +24,10 @@ function App() {
     localStorage.setItem('body_color', body)
     document.body.style.backgroundColor = body
   }, [body])
+
+  useEffect(() => {
+    localStorage.setItem('game_state', JSON.stringify(game_param))
+  }, [game_param])
 
   
   return (
