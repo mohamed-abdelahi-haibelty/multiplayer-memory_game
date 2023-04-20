@@ -21,7 +21,7 @@ const nums_4x4 = Array(8).fill().map((_, i) => ({content: i, visible: false, mat
 const nums_6x6 = Array(18).fill().map((_, i) => ({content: i, visible: false, matched: false}));
 
 
-function Board() {
+function Board(props) {
 
   const [cards, setCards] = useState([]);
   const [moves, setMoves] = useState(0);
@@ -205,7 +205,7 @@ useEffect(() => {
 
   return (
     <div className="board-container">
-        <Header></Header>
+        <Header bodyBg={props.bodyBg}></Header>
         <Grid is_icon={is_icon} grid_size={`grid-${game_param.grid}`} cards={cards} handelShowCard={handelShowCard} is_end_game={is_end_game.current}></Grid>
         <Footer is_multiplayer={players} moves={moves} is_end_game={is_end_game.current}/>
     </div>

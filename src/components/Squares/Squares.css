@@ -88,6 +88,7 @@
     .footer:has(.squares-vr){
         width: 689px;
         gap: 11px;
+        justify-content: space-between;
     }
 }
 

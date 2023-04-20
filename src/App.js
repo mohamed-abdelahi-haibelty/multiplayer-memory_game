@@ -36,7 +36,7 @@ function App() {
       <gameContext.Provider value = {{game_param, setGameParam}}>
         <Routes>
             <Route path='/' element={<Home bodyBg={setBody}></Home>} />
-            <Route path='/game' element={<Board/>} />
+            <Route path='/game' element={<Board bodyBg={setBody}/>} />
         </Routes>
       </gameContext.Provider>
       </div>
