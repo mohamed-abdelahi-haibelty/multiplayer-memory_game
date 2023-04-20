@@ -1,5 +1,6 @@
 import "./Squares.css"
 import SquaresContent from "../SquaresContent/SquaresContent"
+import { useMediaQuery } from 'react-responsive';
 
 function SquareHr(props) {
   return (
@@ -10,9 +11,10 @@ function SquareHr(props) {
 }
 
 function SquareVr(props) {
+  const isMobile = useMediaQuery({ maxWidth: 767});
   return (
     <div className={`squares-vr ${props.class_selector}`}>
-      <SquaresContent text={props.result} title={props.player}/>
+      <SquaresContent text={props.result} title={isMobile? `P${props.id}`: `Player${props.id}`}/>
     </div>
   )
 }

@@ -30,6 +30,8 @@ function Board() {
   const {game_param} = useContext(gameContext)
   const is_end_game = useRef(0);
   const [is_icon, setIsIcon] = useState(false)
+  const [curent_turn, setCurrentTurn] = useState(1)
+
   const [players, setPlayers] = useState(game_param.plyrs_nums > 1 ? () => {
     let arr = [{ player:`P1`, result: 0, turn: true, id: 1 }];
     for (let i = 2; i <= game_param.plyrs_nums; i++) {
@@ -37,8 +39,6 @@ function Board() {
     }
     return arr;
   } : "");
-
-  const [curent_turn, setCurrentTurn] = useState(1)
   // const [end_game, setEndGame] = useState(false)
 
 
@@ -87,8 +87,6 @@ function Board() {
  ///////////////////// shuffle cards when the page load //////////////////
   useEffect(()=>{
     let cards_content
-    // console.log(game_param.grid)
-    // console.log(game_param.theme)
     if(game_param.grid === '4x4'){
       if (game_param.theme === "Numbers"){
         cards_content = nums_4x4;
@@ -116,22 +114,21 @@ const nextTurn = (players) => {
       if (nextTurn > players.length) {
         nextTurn = 1;
       }
-      console.log(`from next turn: current_turn : ${nextTurn}`);
       return nextTurn;
     });
-    console.log(players)
 }
 
 useEffect(() => {
-  setPlayers(prevPlayers => prevPlayers.map(player => {
-    if(player.id === curent_turn){
-      console.log(`from next turn: player id : ${player.id}`)
-      return {...player, turn:true}
-    }
-    else{
-      return {...player, turn:false}
-    }
-  }))
+  if(game_param.plyrs_nums > 1){
+    setPlayers(prevPlayers => prevPlayers.map(player => {
+      if(player.id === curent_turn){
+        return {...player, turn:true}
+      }
+      else{
+        return {...player, turn:false}
+      }
+    }))
+  }
 }, [curent_turn])
 
   useEffect(()=>{
@@ -163,7 +160,6 @@ useEffect(() => {
 
         if(game_param.plyrs_nums > 1){
           updatePlayerScore(players)
-          console.log('update player is called')
         }
 
 
@@ -184,7 +180,6 @@ useEffect(() => {
       console.log(game_param.plyrs_nums)
       if(game_param.plyrs_nums > 1){
         nextTurn(players)
-        console.log('next turn is called')
       }
       reset_turn()
     }

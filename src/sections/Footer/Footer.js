@@ -49,7 +49,7 @@ function Footer(prop) {
           </>
         ) : (
               <>
-                {is_multiplayer.map((p, i) => <SquareVr class_selector={p.turn? 'active': ""} player={p.player} result={p.result} key={i} />)}
+                {is_multiplayer.map((p, i) => <SquareVr class_selector={p.turn? 'active': ""} player={p.player} result={p.result} id={p.id} key={i} />)}
               </>
         )}
       </div>
