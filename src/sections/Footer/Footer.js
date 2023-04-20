@@ -1,11 +1,12 @@
 import "./Footer.css"
-import SquareHr from "../../components/Squares/Squares"
+import SquareHr, { SquareVr } from "../../components/Squares/Squares"
 import { useState, useEffect } from "react"
 import GameOver from "../../components/GameOver/GameOver";
 
 function Footer(prop) {
   const [time, setTime] = useState(0);
   const [timerId, setTimerId] = useState(null);
+  const is_multiplayer = prop.is_multiplayer
   // console.log(prop.is_end_game)
 
 
@@ -28,12 +29,12 @@ function Footer(prop) {
   }
 
   const handelStopTimer = (timerId) => {
-    console.log('handelstoptimer')
+    // console.log('handelstoptimer')
     clearInterval(timerId)
   }
 
   if (prop.is_end_game === 0){
-    console.log("handelstopcondition")
+    // console.log("handelstopcondition")
     handelStopTimer(timerId)
   }
 
@@ -41,8 +42,16 @@ function Footer(prop) {
     <>
       {/* <GameOver time={'1:53'} title={"You did it "} state={"Game over! Here is how you got on..."} moves={"39 Moves"}/> */}
       <div className="footer">
-      <SquareHr text={timer(time)} title={"Time"}/>
-      <SquareHr text={prop.moves} title={"Moves"}/>
+        {is_multiplayer.length <= 0 ? (
+          <>
+            <SquareHr text={timer(time)} title={"Time"} />
+            <SquareHr text={prop.moves} title={"Moves"} />
+          </>
+        ) : (
+              <>
+                {is_multiplayer.map((p, i) => <SquareVr class_selector={p.turn? 'active': ""} player={p.player} result={p.result} key={i} />)}
+              </>
+        )}
       </div>
     </>
   )

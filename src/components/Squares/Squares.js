@@ -11,7 +11,9 @@ function SquareHr(props) {
 
 function SquareVr(props) {
   return (
-    <SquaresContent text={props.text} title={props.title}/>
+    <div className={`squares-vr ${props.class_selector}`}>
+      <SquaresContent text={props.result} title={props.player}/>
+    </div>
   )
 }
 

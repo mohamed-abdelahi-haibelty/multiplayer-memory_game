@@ -34,14 +34,11 @@ function Home(props) {
      const allWithClass = Array.from(
       document.querySelectorAll(target)
      );
-    
-     console.log(allWithClass)
      allWithClass.forEach((el) => {
         el.classList.remove('button-dark')
         el.classList.add("button-gray")
      })
 
-    console.log(type)
      switch (type) {
       case 'theme':
         setGameParam({...game_param, theme:data})
@@ -62,9 +59,9 @@ function Home(props) {
 
    }
 
-   useEffect(() => {
-    console.log(game_param);
-  }, [game_param]);
+  //  useEffect(() => {
+  //   console.log(game_param);
+  // }, [game_param]);
 
 
 

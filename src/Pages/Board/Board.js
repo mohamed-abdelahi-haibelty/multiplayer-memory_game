@@ -30,6 +30,15 @@ function Board() {
   const {game_param} = useContext(gameContext)
   const is_end_game = useRef(0);
   const [is_icon, setIsIcon] = useState(false)
+  const [players, setPlayers] = useState(game_param.plyrs_nums > 1 ? () => {
+    let arr = [{ player:`P1`, result: 0, turn: true, id: 1 }];
+    for (let i = 2; i <= game_param.plyrs_nums; i++) {
+      arr.push({ player:`P${i}`, result: 0, turn: false, id: i });
+    }
+    return arr;
+  } : "");
+
+  const [curent_turn, setCurrentTurn] = useState(1)
   // const [end_game, setEndGame] = useState(false)
 
 
@@ -51,7 +60,6 @@ function Board() {
     shuffled = shuffled.map(card => ({...card, id: Math.random()}))
     
     //////////////// add the shuffeld cards to the cards_content variable///////////
-    console.log(shuffled)
     setCards(shuffled)
 
     setMoves(0)
@@ -79,8 +87,8 @@ function Board() {
  ///////////////////// shuffle cards when the page load //////////////////
   useEffect(()=>{
     let cards_content
-    console.log(game_param.grid)
-    console.log(game_param.theme)
+    // console.log(game_param.grid)
+    // console.log(game_param.theme)
     if(game_param.grid === '4x4'){
       if (game_param.theme === "Numbers"){
         cards_content = nums_4x4;
@@ -100,6 +108,31 @@ function Board() {
     shuflleCards(cards_content);
   }, [])
 
+
+
+const nextTurn = (players) => {
+     setCurrentTurn(prevTurn => {
+      let nextTurn = prevTurn + 1;
+      if (nextTurn > players.length) {
+        nextTurn = 1;
+      }
+      console.log(`from next turn: current_turn : ${nextTurn}`);
+      return nextTurn;
+    });
+    console.log(players)
+}
+
+useEffect(() => {
+  setPlayers(prevPlayers => prevPlayers.map(player => {
+    if(player.id === curent_turn){
+      console.log(`from next turn: player id : ${player.id}`)
+      return {...player, turn:true}
+    }
+    else{
+      return {...player, turn:false}
+    }
+  }))
+}, [curent_turn])
 
   useEffect(()=>{
 
@@ -128,6 +161,11 @@ function Board() {
           }
         }))
 
+        if(game_param.plyrs_nums > 1){
+          updatePlayerScore(players)
+          console.log('update player is called')
+        }
+
 
         is_end_game.current += 1;
       }
@@ -143,7 +181,11 @@ function Board() {
           }))
         },500)
       }
-
+      console.log(game_param.plyrs_nums)
+      if(game_param.plyrs_nums > 1){
+        nextTurn(players)
+        console.log('next turn is called')
+      }
       reset_turn()
     }
   }, [choice_one, choice_two])
@@ -155,11 +197,22 @@ function Board() {
   // }
 
 
+  const updatePlayerScore = (players) => {
+      setPlayers(prevPlayers => prevPlayers.map(player => {
+          if(player.turn === true){
+            console.log(`from update: player turn: ${player.turn}`)
+            return {...player, result:player.result +1}
+          }else{
+            return player
+          }
+      }))
+  }
+
   return (
     <div className="board-container">
         <Header></Header>
         <Grid is_icon={is_icon} grid_size={`grid-${game_param.grid}`} cards={cards} handelShowCard={handelShowCard} is_end_game={is_end_game.current}></Grid>
-        <Footer moves={moves} is_end_game={is_end_game.current}/>
+        <Footer is_multiplayer={players} moves={moves} is_end_game={is_end_game.current}/>
     </div>
   )
 }

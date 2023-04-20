@@ -9,7 +9,7 @@ import { useEffect } from "react"
 export const gameContext = createContext()
 
 function App() {
-  const [game_param, setGameParam] = useState({theme:'Numbers', plyrs_nums:'1', grid:'4x4'})
+  const [game_param, setGameParam] = useState({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
   const [body, setBody] = useState(() => {
     return localStorage.getItem('body_color')? localStorage.getItem('body_color') : '#152938'
   })

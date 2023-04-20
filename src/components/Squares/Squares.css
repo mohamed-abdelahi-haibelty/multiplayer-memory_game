@@ -7,7 +7,32 @@
 
 @media (max-width: 767px){
     .squares-hr{
-        width: calc(151px - 64px)
+        width: calc(151px - 64px);
+        padding: 10px 32px;
+    }
+
+    .squares-vr{
+        width: 64px;
+        padding: 10px 14px;
+        position:relative
+    }
+
+    .squares-vr.active::before {
+        content: '';
+        border-width: 16px;
+        width: 0;
+        height: 8px;
+        background-color: red, green, black, yellow;
+        position: absolute;
+        border-style: solid;
+        border-color: transparent transparent var(--color-orange) transparent;
+        top: -57%;
+    }
+    .squares-vr.active{
+        background-color: var(--color-orange);
+    }
+    .squares-vr.active *{
+        color: var(--color-light);
     }
 
     .squares-hr,.squares-vr{
@@ -15,8 +40,12 @@
         max-height: 70px;
         justify-content: center;
         flex-direction: column;
-        padding: 10px 32px;
     }
+
+    .footer:has(.squares-vr){
+        gap: 24px;
+    }
+    
 }
 
 
@@ -35,6 +64,3 @@
 }
 
 
-.squares-vr{
-    width: 64x;
-}
