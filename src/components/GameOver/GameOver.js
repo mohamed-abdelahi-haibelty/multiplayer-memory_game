@@ -3,8 +3,13 @@ import "../Popup/Popup"
 import Popup from "../Popup/Popup"
 import SquareHr from "../Squares/Squares"
 import MainButton from "../Buttons/Buttons"
+import { useContext} from "react"
+import { gameFunctions } from "../../Pages/Board/Board"
 
 function GameOver({title, state, time, moves, players, heighstResult}) {
+  
+  const {handelRestart, handelNewGame} = useContext(gameFunctions)
+
   return (
     <div>
         <div className="overlay"></div>
@@ -30,8 +35,8 @@ function GameOver({title, state, time, moves, players, heighstResult}) {
                 }
               </div>
              <div className="game-over-footer">
-                <MainButton class_selector={'button-orange'}  text={"Restart"}/>
-                <MainButton class_selector={'button-very-light'} text={"Setup New Game"}/>
+                <MainButton class_selector={'button-orange'} onClick={handelRestart}  text={"Restart"}/>
+                <MainButton class_selector={'button-very-light'} onClick={handelNewGame} text={"Setup New Game"}/>
              </div>
           </Popup>
         </div>

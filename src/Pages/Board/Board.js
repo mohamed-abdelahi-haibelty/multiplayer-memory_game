@@ -3,8 +3,9 @@ import "./Board.css"
 import Header from "../../sections/Header/Header"
 import Grid from "../../sections/Grid/Grid"
 import Footer from "../../sections/Footer/Footer"
-import { useContext } from 'react'
+import { useContext, createContext } from 'react'
 import { gameContext } from '../../App'
+import { useNavigate } from "react-router-dom"
 
 import { FaEarlybirds, FaGithubAlt, FaSnowman, FaKeybase, FaHippo, FaQq, FaGhost, FaBomb, 
   FaCarAlt, FaCat, FaDizzy, FaDog, FaFemale, FaKaaba, FaGrinWink, FaHandSpock, FaMeteor,
@@ -20,18 +21,27 @@ const icons_6x6 = [FaEarlybirds, FaGithubAlt, FaSnowman, FaKeybase, FaHippo, FaQ
 const nums_4x4 = Array(8).fill().map((_, i) => ({content: i, visible: false, matched: false}));
 const nums_6x6 = Array(18).fill().map((_, i) => ({content: i, visible: false, matched: false}));
 
+export const gameFunctions = createContext()
 
 
 function Board(props) {
 
   const [cards, setCards] = useState([]);
   const [moves, setMoves] = useState(0);
+
   const [choice_one, setChoiceOne] = useState(null)
   const [choice_two, setChoiceTwo] = useState(null)
+
   const {game_param} = useContext(gameContext)
   const is_end_game = useRef(0);
+
   const [is_icon, setIsIcon] = useState(false)
   const [curent_turn, setCurrentTurn] = useState(1)
+
+  const {setGameParam} = useContext(gameContext)
+  const navigate = useNavigate()
+  const setBody = props.bodyBg
+
 
   const [players, setPlayers] = useState(game_param.plyrs_nums > 1 ? () => {
     let arr = [{ player:`P1`, result: 0, turn: true, id: 1, winner: false }];
@@ -40,7 +50,6 @@ function Board(props) {
     }
     return arr;
   } : "");
-  // const [end_game, setEndGame] = useState(false)
 
 
   ////////////////////////////////// shuflle cards/////////////////////////
@@ -186,12 +195,6 @@ useEffect(() => {
   }, [choice_one, choice_two])
 
 
-  // if (is_end_game.current === 8){
-  //   console.log("end_game")
-  //   setEndGame(true)
-  // }
-
-
   const updatePlayerScore = (players) => {
       setPlayers(prevPlayers => prevPlayers.map(player => {
           if(player.turn === true){
@@ -203,11 +206,25 @@ useEffect(() => {
       }))
   }
 
+  function handelRestart(){
+    window.location.reload();
+  }
+
+  function handelNewGame(){
+    setBody('#152938')
+    setGameParam({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
+    navigate('/')
+    localStorage.removeItem('body_color');
+    localStorage.removeItem('game_state');
+  }
+
   return (
     <div className="board-container">
+       <gameFunctions.Provider value={{handelRestart, handelNewGame}}>
         <Header bodyBg={props.bodyBg}></Header>
         <Grid is_icon={is_icon} grid_size={`grid-${game_param.grid}`} cards={cards} handelShowCard={handelShowCard} is_end_game={is_end_game.current}></Grid>
         <Footer is_multiplayer={players} moves={moves} is_end_game={is_end_game.current} setPlayers={setPlayers}/>
+       </gameFunctions.Provider>
     </div>
   )
 }

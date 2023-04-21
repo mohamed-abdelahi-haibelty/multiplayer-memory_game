@@ -3,15 +3,13 @@ import Logo from "../../components/Logo/Logo"
 import MainButton from "../../components/Buttons/Buttons"
 import Popup from "../../components/Popup/Popup"
 import { useState, useContext} from "react"
-import { useNavigate } from "react-router-dom"
-import { gameContext } from "../../App"
+import { gameFunctions } from "../../Pages/Board/Board"
 
 function Header(props) {
 
-  const {setGameParam} = useContext(gameContext)
-  const navigate = useNavigate()
+  const {handelRestart, handelNewGame} = useContext(gameFunctions)
   const [showMenu, SetShowMenu] = useState(false);
-  const setBody = props.bodyBg
+
   const menuData = [
     {onClick : handelRestart, class_selector: 'button-orange', text: "Restart" },
     {onClick : handelNewGame, class_selector: 'button-very-light',text: "New Game"},
@@ -28,18 +26,6 @@ function Header(props) {
           return <MainButton onClick={btn.onClick} 
           class_selector={btn.class_selector} text={btn.text} key={i}/>
         })
-
-  function handelRestart(){
-    window.location.reload();
-  }
-
-  function handelNewGame(){
-    setBody('#152938')
-    setGameParam({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
-    navigate('/')
-    localStorage.removeItem('body_color');
-    localStorage.removeItem('game_state');
-  }
 
   return (
     <>

@@ -1,4 +1,3 @@
-
 import { createContext, useState } from "react"
 import "./App.css"
 import Board from "./Pages/Board/Board"
@@ -9,7 +8,6 @@ import { useEffect } from "react"
 export const gameContext = createContext()
 
 function App() {
-  // const [game_param, setGameParam] = useState({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
 
   const [game_param, setGameParam] = useState(() => {
     let localData = localStorage.getItem('game_state')
@@ -28,7 +26,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('game_state', JSON.stringify(game_param))
   }, [game_param])
-
   
   return (
     <Router>

@@ -7,13 +7,15 @@ import { gameContext } from "../../App";
 function Footer(prop) {
   const [time, setTime] = useState(0);
   const [timerId, setTimerId] = useState(null);
+
   const is_multiplayer = prop.is_multiplayer
   const {game_param} = useContext(gameContext)
+
   let solo = game_param.plyrs_nums === 1 ? true : false
   let game_over_title
   let game_over_description
+  
   let winners
-  // console.log(prop.is_end_game)
   const pairs = game_param.grid === "4x4" ? 8 : 18
   let game_over = false
 
@@ -49,7 +51,6 @@ function Footer(prop) {
   }
 
   const handelStopTimer = (timerId) => {
-    // console.log('handelstoptimer')
     clearInterval(timerId)
   }
 
