@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 
 function SquareHr(props) {
   return (
-    <div className="squares-hr">
+    <div className={`squares-hr ${props.class_selector}`}>
             <SquaresContent text={props.text} title={props.title}/>
     </div>
   )

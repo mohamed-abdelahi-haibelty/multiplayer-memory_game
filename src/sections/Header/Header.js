@@ -2,11 +2,13 @@ import "./Header.css"
 import Logo from "../../components/Logo/Logo"
 import MainButton from "../../components/Buttons/Buttons"
 import Popup from "../../components/Popup/Popup"
-import { useState } from "react"
+import { useState, useContext} from "react"
 import { useNavigate } from "react-router-dom"
+import { gameContext } from "../../App"
 
 function Header(props) {
 
+  const {setGameParam} = useContext(gameContext)
   const navigate = useNavigate()
   const [showMenu, SetShowMenu] = useState(false);
   const setBody = props.bodyBg
@@ -33,6 +35,7 @@ function Header(props) {
 
   function handelNewGame(){
     setBody('#152938')
+    setGameParam({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
     navigate('/')
     localStorage.removeItem('body_color');
     localStorage.removeItem('game_state');

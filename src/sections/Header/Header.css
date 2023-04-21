@@ -15,7 +15,8 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Overlay color */
-    filter: brightness(0.5); 
+    filter: brightness(0.5);
+    z-index: 1000;
 }
 
 @media (max-width: 767px){
