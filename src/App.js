@@ -14,14 +14,14 @@ function App() {
     return localData? JSON.parse(localData) : {theme:'Numbers', plyrs_nums: 1, grid:'4x4'}
   })
 
-  const [body, setBody] = useState(() => {
-    return localStorage.getItem('body_color')? localStorage.getItem('body_color') : '#152938'
-  })
+  // const [body, setBody] = useState(() => {
+  //   return localStorage.getItem('body_color')? localStorage.getItem('body_color') : '#152938'
+  // })
 
-  useEffect(() => {
-    localStorage.setItem('body_color', body)
-    document.body.style.backgroundColor = body
-  }, [body])
+  // useEffect(() => {
+  //   localStorage.setItem('body_color', body)
+  //   document.body.style.backgroundColor = body
+  // }, [body])
 
   useEffect(() => {
     localStorage.setItem('game_state', JSON.stringify(game_param))
@@ -32,8 +32,9 @@ function App() {
       <div className="container" >
       <gameContext.Provider value = {{game_param, setGameParam}}>
         <Routes>
-            <Route path='/' element={<Home bodyBg={setBody}></Home>} />
-            <Route path='/game' element={<Board bodyBg={setBody}/>} />
+        {/* bodyBg={setBody} */}
+            <Route path='/' element={<Home ></Home>} />
+            <Route path='/game' element={<Board />} />
         </Routes>
       </gameContext.Provider>
       </div>

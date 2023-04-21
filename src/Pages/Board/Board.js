@@ -26,6 +26,10 @@ export const gameFunctions = createContext()
 
 function Board(props) {
 
+  useEffect(() => {
+    document.body.style.backgroundColor = '#fcfcfc'
+  }, [])
+
   const [cards, setCards] = useState([]);
   const [moves, setMoves] = useState(0);
 
@@ -211,10 +215,10 @@ useEffect(() => {
   }
 
   function handelNewGame(){
-    setBody('#152938')
+    // setBody('#152938')
     setGameParam({theme:'Numbers', plyrs_nums: 1, grid:'4x4'})
     navigate('/')
-    localStorage.removeItem('body_color');
+    // localStorage.removeItem('body_color');
     localStorage.removeItem('game_state');
   }
 

@@ -10,13 +10,16 @@ import { gameContext } from '../../App'
 
 
 function Home(props) {
+
+  useEffect(() => {
+    document.body.style.backgroundColor = '#152938'
+  }, [])
+
   const classes_list = [`button-sm button-dark`, `button-sm button-gray`,
   `button-sm button-gray`, `button-sm button-gray`]
 
-  const setBody = props.bodyBg
+  // const setBody = props.bodyBg
 
-  //theme, plyrs_nums, grid
-  //  const [game_param, setGameParam] = useState({theme:'', plyrs_nums:'', grid:''})
    const {game_param, setGameParam} = useContext(gameContext)
 
   let plyrs_btns_nums = classes_list.map((class_name, index) => {
@@ -59,12 +62,6 @@ function Home(props) {
 
    }
 
-  //  useEffect(() => {
-  //   console.log(game_param);
-  // }, [game_param]);
-
-
-
   let select_them_btns = select_them_data.map((btn, index) => {
     return <Button onClick={(event) => handleBtns(event, index, ".select-them button", "theme", btn.text)} class_selector={btn.class_selector} text={btn.text} key={index + 1}></Button>
   })
@@ -105,7 +102,8 @@ function Home(props) {
                 </div>
 
                 <div className="start-game">
-                  <Link to='/game' onClick={() =>setBody('#FCFCFC')}>
+                {/* onClick={() =>setBody('#FCFCFC')} */}
+                  <Link to='/game'>
                     <Button  class_selector={` button-orange`} text={'Start Game'}></Button>
                   </Link>
                 </div>
