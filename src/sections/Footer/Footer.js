@@ -14,7 +14,7 @@ function Footer(prop) {
   let solo = game_param.plyrs_nums === 1 ? true : false
   let game_over_title
   let game_over_description
-  
+
   let winners
   const pairs = game_param.grid === "4x4" ? 8 : 18
   let game_over = false
@@ -33,7 +33,6 @@ function Footer(prop) {
     if (solo) {
       id = setInterval(() => {
         setTime(prevTime => prevTime + 1)
-        console.log('hi')
       }, 1000);
       setTimerId(id);
     }
@@ -54,12 +53,12 @@ function Footer(prop) {
     clearInterval(timerId)
   }
 
-  if (prop.is_end_game === pairs || time === 180){
+  if (prop.is_end_game === pairs || time === 120){
 
     if (solo) {
       handelStopTimer(timerId)
-      game_over_title = time < 180 ? "You did it " : "You lose"
-      game_over_description = time < 180 ? "Game over! Here is how you got on..." : "Game over! Time's Up..."
+      game_over_title = time < 120 ? "You did it " : "You lose"
+      game_over_description = time < 120 ? "Game over! Here is how you got on..." : "Game over! Time's Up..."
     }
     else{
       winners = checkWinner(is_multiplayer)
@@ -75,7 +74,7 @@ function Footer(prop) {
   return (
     <>
       {game_over ? <GameOver time={timer} title={game_over_title} state={game_over_description}
-       moves={solo ? prop.moves : ""} players={is_multiplayer} heighstResult={winners[0].result} /> : ""}
+       moves={solo ? prop.moves : ""} players={is_multiplayer} heighstResult={solo ? "" : winners[0].result} /> : ""}
 
       <div className="footer">
         {is_multiplayer.length <= 0 ? (
